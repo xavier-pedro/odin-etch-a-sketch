@@ -18,6 +18,14 @@ function fazGrade(){
     caixa.style.flexBasis = `calc(600px / ${numeroDeCaixas})`;
     area.appendChild(caixa);
   }
+
+  const caixa = document.querySelectorAll(".box");
+
+  caixa.forEach((item) => {
+    item.addEventListener("mousemove", () => {
+      item.classList.add("backgroundBox");
+    });
+  });
 }
 
 const quantidade = document.querySelector("#quantidade")
@@ -44,3 +52,14 @@ quantidade.addEventListener('click', (e) => {
 
 fazGrade();
 
+const limpar = document.querySelector("#clear")
+
+limpar.addEventListener('click', () => {
+
+    let caixasPintadas = document.querySelectorAll(".backgroundBox")
+    caixasPintadas.forEach((item) => {
+
+        item.classList.remove("backgroundBox");
+      
+    });
+})

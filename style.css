@@ -15,3 +15,8 @@
     width: 600px;
     height: 600px;
 }
+
+.backgroundBox{
+    background-color: black;
+    border: 1px solid white;
+}
