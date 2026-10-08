@@ -1,5 +1,17 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
 .box{
     border: 1px solid black;
-    width: 42px;
-    height: 42px;
+    aspect-ratio: 1;
+}
+
+.grade{
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 500px;
 }
