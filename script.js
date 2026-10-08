@@ -60,9 +60,11 @@ fazGrade();
 const limpar = document.querySelector("#clear");
 
 limpar.addEventListener("click", () => {
-  let caixasPintadas = document.querySelectorAll(".backgroundBox");
+  const grade = document.querySelector(".grade");
+  let caixasPintadas = grade.querySelectorAll("div");
   caixasPintadas.forEach((item) => {
     item.classList.remove("backgroundBox");
+    item.style.removeProperty("background");
   });
 });
 
@@ -72,5 +74,5 @@ const colorido = document.querySelector("#colorido");
 
 colorido.addEventListener("click", () => {
   coloridoAtivado = true;
-  fazGrade()
+  fazGrade();
 });
