@@ -73,6 +73,16 @@ let coloridoAtivado = false;
 const colorido = document.querySelector("#colorido");
 
 colorido.addEventListener("click", () => {
-  coloridoAtivado = true;
-  fazGrade();
+
+    if(coloridoAtivado){
+        colorido.textContent = "Modo colorido";
+        coloridoAtivado = false;
+        
+        
+    } else {
+      coloridoAtivado = true;
+      colorido.textContent = "Desligar colorido";
+      
+    }
+    fazGrade();
 });
