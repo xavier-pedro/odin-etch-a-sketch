@@ -15,7 +15,7 @@ function fazGrade(){
     caixa.classList.add("box");
 
     // calcula o tamanho que a caixa precisa ter, para caber as demais também
-    caixa.style.flexBasis = `calc(500px / ${numeroDeCaixas})`;
+    caixa.style.flexBasis = `calc(600px / ${numeroDeCaixas})`;
     area.appendChild(caixa);
   }
 }
@@ -28,6 +28,16 @@ quantidade.addEventListener('click', (e) => {
         "⏹ NÚMERO DE QUADRADOS\n\nEscolha o número de quadrados para formar a grade\nMIN: 1 | MÁX: 100", 
       ),
     );
+
+    while(numeroDeCaixas < 1 || numeroDeCaixas > 100){
+
+        alert("Você digitou: " + numeroDeCaixas + "\n\nDigite um número valido de 1 a 100")    
+        numeroDeCaixas = Number(
+          prompt(
+            "⏹ NÚMERO DE QUADRADOS\n\nEscolha o número de quadrados para formar a grade\nMIN: 1 | MÁX: 100",
+          ),
+        );
+    }
 
     fazGrade();
 })

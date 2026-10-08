@@ -12,6 +12,6 @@
 .grade{
     display: flex;
     flex-wrap: wrap;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
 }
