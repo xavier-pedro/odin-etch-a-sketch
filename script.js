@@ -1,13 +1,11 @@
 let numeroDeCaixas = 16;
 
-const area = document.querySelector(".grade")
+const area = document.querySelector(".grade");
 
-
-function fazGrade(){
-    
-  const caixasAntigas = area.querySelectorAll(".box")
-  for(let i = 0; i < caixasAntigas.length; i++){
-    caixasAntigas[i].remove()
+function fazGrade() {
+  const caixasAntigas = area.querySelectorAll(".box");
+  for (let i = 0; i < caixasAntigas.length; i++) {
+    caixasAntigas[i].remove();
   }
 
   for (let i = 0; i < numeroDeCaixas * numeroDeCaixas; i++) {
@@ -22,44 +20,57 @@ function fazGrade(){
   const caixa = document.querySelectorAll(".box");
 
   caixa.forEach((item) => {
-    item.addEventListener("mousemove", () => {
-      item.classList.add("backgroundBox");
+    item.addEventListener("mouseenter", () => {
+      if (coloridoAtivado) {
+        item.style.background = `rgb(${Math.floor(Math.random() * (255 - 0) + 1)} ${Math.floor(Math.random() * (255 - 0) + 1)} ${Math.floor(Math.random() * (255 - 0) + 1)} / 100%)`;
+      } else {
+        item.classList.add("backgroundBox");
+      }
     });
   });
 }
 
-const quantidade = document.querySelector("#quantidade")
+const quantidade = document.querySelector("#quantidade");
 
-quantidade.addEventListener('click', (e) => {
+quantidade.addEventListener("click", (e) => {
+  numeroDeCaixas = Number(
+    prompt(
+      "⏹ NÚMERO DE QUADRADOS\n\nEscolha o número de quadrados para formar a grade\nMIN: 1 | MÁX: 100",
+    ),
+  );
+
+  while (numeroDeCaixas < 1 || numeroDeCaixas > 100) {
+    alert(
+      "Você digitou: " +
+        numeroDeCaixas +
+        "\n\nDigite um número valido de 1 a 100",
+    );
     numeroDeCaixas = Number(
       prompt(
-        "⏹ NÚMERO DE QUADRADOS\n\nEscolha o número de quadrados para formar a grade\nMIN: 1 | MÁX: 100", 
+        "⏹ NÚMERO DE QUADRADOS\n\nEscolha o número de quadrados para formar a grade\nMIN: 1 | MÁX: 100",
       ),
     );
+  }
 
-    while(numeroDeCaixas < 1 || numeroDeCaixas > 100){
-
-        alert("Você digitou: " + numeroDeCaixas + "\n\nDigite um número valido de 1 a 100")    
-        numeroDeCaixas = Number(
-          prompt(
-            "⏹ NÚMERO DE QUADRADOS\n\nEscolha o número de quadrados para formar a grade\nMIN: 1 | MÁX: 100",
-          ),
-        );
-    }
-
-    fazGrade();
-})
+  fazGrade();
+});
 
 fazGrade();
 
-const limpar = document.querySelector("#clear")
+const limpar = document.querySelector("#clear");
 
-limpar.addEventListener('click', () => {
+limpar.addEventListener("click", () => {
+  let caixasPintadas = document.querySelectorAll(".backgroundBox");
+  caixasPintadas.forEach((item) => {
+    item.classList.remove("backgroundBox");
+  });
+});
 
-    let caixasPintadas = document.querySelectorAll(".backgroundBox")
-    caixasPintadas.forEach((item) => {
+let coloridoAtivado = false;
 
-        item.classList.remove("backgroundBox");
-      
-    });
-})
+const colorido = document.querySelector("#colorido");
+
+colorido.addEventListener("click", () => {
+  coloridoAtivado = true;
+  fazGrade()
+});

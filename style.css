@@ -27,3 +27,17 @@ button{
     border: none;
     cursor: pointer;
 }
+
+#quantidade{
+    background-color: rgb(0, 174, 255);
+    
+}
+
+#clear{
+    background-color: red;
+    color: white;
+}
+
+#colorido{
+    background-color: violet;
+}
