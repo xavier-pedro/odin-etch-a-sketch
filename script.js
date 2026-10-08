@@ -81,7 +81,7 @@ colorido.addEventListener("click", () => {
         
     } else {
       coloridoAtivado = true;
-      colorido.textContent = "Desligar colorido";
+      colorido.textContent = "❌ Desligar colorido";
       
     }
     fazGrade();
