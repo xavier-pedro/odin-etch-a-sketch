@@ -1,4 +1,4 @@
-let numeroDeCaixas = 10;
+let numeroDeCaixas = 16;
 
 const area = document.querySelector(".grade")
 
